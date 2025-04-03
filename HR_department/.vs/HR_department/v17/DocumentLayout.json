@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\coffe\\Downloads\\HR\\HR\\HR_department\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F1DDBF42-9D90-46B1-B4BE-1AA455436E21}|..\\UnitTestProject2\\UnitTestProject2.csproj|c:\\users\\coffe\\downloads\\hr\\hr\\unittestproject2\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BF49B85-54FA-4587-901E-1C4A8DCB08E1}|HR_department.csproj|C:\\Users\\coffe\\Downloads\\HR\\HR\\HR_department\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BF49B85-54FA-4587-901E-1C4A8DCB08E1}|HR_department.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\coffe\\Downloads\\HR\\HR\\HR_department\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\coffe\\Downloads\\HR\\HR\\HR_department\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAACkBAAAAAAAAAAAwwD4BAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T05:13:14.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\coffe\\Downloads\\HR\\HR\\UnitTestProject2\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "..\\UnitTestProject2\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\coffe\\Downloads\\HR\\HR\\UnitTestProject2\\UnitTest1.cs",
+              "RelativeToolTip": "..\\UnitTestProject2\\UnitTest1.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAUwFYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T04:40:33.347Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\ru\Microsoft.TestPlatform.AdapterUtilities.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\ru\Microsoft.TestPlatform.CoreUtilities.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\UnitTestProject2.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\UnitTestProject2.pdb
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\obj\Debug\UnitTestProject2.csproj.AssemblyReference.cache
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\obj\Debug\UnitTestProject2.csproj.CoreCompileInputs.cache
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\obj\Debug\UnitTest.384B57F8.Up2Date
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\obj\Debug\UnitTestProject2.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\obj\Debug\UnitTestProject2.pdb
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\UnitTestProject2.dll.config
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\EntityFramework.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\HR_department.exe
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Data.SqlClient.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Memory.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Text.Json.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Identity.Client.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Azure.Core.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Azure.Identity.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.ValueTuple.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Buffers.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Memory.Data.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.ClientModel.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Security.Cryptography.ProtectedData.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.IO.FileSystem.AccessControl.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Security.AccessControl.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\HR_department.pdb
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\HR_department.exe.config
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Data.SqlClient.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Memory.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Text.Json.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Identity.Client.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Azure.Core.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Azure.Identity.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Protocols.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.ValueTuple.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Buffers.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Abstractions.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Memory.Data.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.ClientModel.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Identity.Client.Extensions.Msal.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Security.Cryptography.ProtectedData.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.IO.FileSystem.AccessControl.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Security.AccessControl.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\cs\Microsoft.Data.SqlClient.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\pl\Microsoft.Data.SqlClient.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\tr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Bcl.Cryptography.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Security.Cryptography.Pkcs.dll
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\Microsoft.Bcl.Cryptography.xml
+C:\Users\coffe\Downloads\HR\HR\UnitTestProject2\bin\Debug\System.Security.Cryptography.Pkcs.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\ru\Microsoft.TestPlatform.AdapterUtilities.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\ru\Microsoft.TestPlatform.CoreUtilities.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\UnitTestProject2.dll.config
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\UnitTestProject2.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\UnitTestProject2.pdb
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Azure.Core.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Azure.Identity.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\EntityFramework.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\HR_department.exe
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Bcl.Cryptography.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Data.SqlClient.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Identity.Client.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Buffers.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.ClientModel.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.IO.FileSystem.AccessControl.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Memory.Data.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Memory.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Security.Cryptography.Pkcs.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Text.Json.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.ValueTuple.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\HR_department.pdb
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\HR_department.exe.config
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Azure.Core.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Azure.Identity.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Bcl.Cryptography.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Data.SqlClient.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Identity.Client.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.Identity.Client.Extensions.Msal.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Abstractions.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Protocols.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Buffers.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.ClientModel.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.IO.FileSystem.AccessControl.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Memory.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Memory.Data.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Security.Cryptography.Pkcs.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Security.Cryptography.ProtectedData.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Text.Json.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\System.ValueTuple.xml
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\cs\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\de\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\es\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\it\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\pl\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\tr\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\obj\Debug\UnitTestProject2.csproj.AssemblyReference.cache
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\obj\Debug\UnitTestProject2.csproj.CoreCompileInputs.cache
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\obj\Debug\UnitTestProject2.csproj.CopyComplete
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\obj\Debug\UnitTestProject2.dll
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\UnitTestProject2\obj\Debug\UnitTestProject2.pdb
