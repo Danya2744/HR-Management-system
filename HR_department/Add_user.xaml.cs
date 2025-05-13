@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Data.SqlClient;
@@ -20,12 +23,28 @@ namespace HR_department
             this.Closing += Add_user_Closing;
         }
 
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
+        }
+
         private void Add_user_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (_isSaved) return;
 
-            e.Cancel = true;
-            ShowCustomMessageBox("Необходимо сохранить данные перед выходом!", "Предупреждение", false);
+            var confirmBox = new CustomBox("Вы уверены, что хотите закрыть окно без сохранения? Все несохраненные данные будут потеряны.", true);
+            if (confirmBox.ShowDialog() == true)
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
 
         private void LoadStatuses()
@@ -35,73 +54,91 @@ namespace HR_department
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     connection.Open();
-                    string query = "SELECT StatusID, Name_status FROM Status_user";
+                    string query = "SELECT StatusID as Id, Name_status as Name FROM Status_user";
                     SqlCommand command = new SqlCommand(query, connection);
-                    SqlDataReader reader = command.ExecuteReader();
 
-                    StatusComboBox.Items.Clear();
-                    while (reader.Read())
+                    var statuses = new System.Collections.ObjectModel.ObservableCollection<Status>();
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        StatusComboBox.Items.Add(new
+                        while (reader.Read())
                         {
-                            Id = reader.GetInt32(0),
-                            Name = reader.GetString(1)
-                        });
+                            statuses.Add(new Status
+                            {
+                                Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                                Name = reader.GetString(reader.GetOrdinal("Name"))
+                            });
+                        }
                     }
+
+                    StatusComboBox.ItemsSource = statuses;
                     StatusComboBox.DisplayMemberPath = "Name";
                     StatusComboBox.SelectedValuePath = "Id";
                 }
             }
             catch (Exception ex)
             {
-                ShowCustomMessageBox($"Ошибка загрузки статусов: {ex.Message}", "Ошибка", false);
+                var errorMessageBox = new CustomBox($"Ошибка загрузки статусов: {ex.Message}", false);
+                errorMessageBox.ShowDialog();
             }
         }
 
-        public bool ValidateUserInputs(string login, string password, object status)
+        private bool ValidateInputs()
         {
-            if (string.IsNullOrWhiteSpace(login))
+            if (string.IsNullOrWhiteSpace(LoginTextBox.Text))
             {
-                ShowCustomMessageBox("Логин не может быть пустым!", "Ошибка", false);
+                var errorMessageBox = new CustomBox("Логин не может быть пустым!", false);
+                errorMessageBox.ShowDialog();
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(PasswordBox.Password))
             {
-                ShowCustomMessageBox("Пароль не может быть пустым!", "Ошибка", false);
+                var errorMessageBox = new CustomBox("Пароль не может быть пустым!", false);
+                errorMessageBox.ShowDialog();
                 return false;
             }
 
-            if (status == null)
+            if (StatusComboBox.SelectedItem == null)
             {
-                ShowCustomMessageBox("Необходимо выбрать статус пользователя!", "Ошибка", false);
+                var errorMessageBox = new CustomBox("Необходимо выбрать статус пользователя!", false);
+                errorMessageBox.ShowDialog();
                 return false;
             }
 
-            if (login.Length > 50)
+            if (LoginTextBox.Text.Length < 12)
             {
-                ShowCustomMessageBox("Логин не может превышать 50 символов!", "Ошибка", false);
+                var errorMessageBox = new CustomBox("Логин должен содержать не менее 12 символов!", false);
+                errorMessageBox.ShowDialog();
                 return false;
             }
 
-            if (password.Length > 15)
+            if (LoginTextBox.Text.Length > 30)
             {
-                ShowCustomMessageBox("Пароль не должен содержать более 15 символов!", "Ошибка", false);
+                var errorMessageBox = new CustomBox("Логин не может превышать 30 символов!", false);
+                errorMessageBox.ShowDialog();
                 return false;
             }
 
-            if (password.Length < 6)
+            if (PasswordBox.Password.Length < 6)
             {
-                ShowCustomMessageBox("Пароль должен содержать не менее 6 символов!", "Ошибка", false);
+                var errorMessageBox = new CustomBox("Пароль должен содержать не менее 6 символов!", false);
+                errorMessageBox.ShowDialog();
+                return false;
+            }
+
+            if (PasswordBox.Password.Length > 15)
+            {
+                var errorMessageBox = new CustomBox("Пароль не должен содержать более 15 символов!", false);
+                errorMessageBox.ShowDialog();
                 return false;
             }
 
             return true;
         }
 
-        public bool SaveUser(int employeeId, string login, string password, object status)
+        private bool SaveUser()
         {
-            if (!ValidateUserInputs(login, password, status))
+            if (!ValidateInputs())
             {
                 return false;
             }
@@ -111,27 +148,36 @@ namespace HR_department
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     connection.Open();
-                    string checkQuery = "SELECT COUNT(*) FROM Users WHERE Login_user = @Login";
-                    SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
-                    checkCommand.Parameters.AddWithValue("@Login", login);
-                    int exists = (int)checkCommand.ExecuteScalar();
+                    string checkLoginQuery = "SELECT COUNT(*) FROM Users WHERE Login_user = @Login";
+                    SqlCommand checkLoginCommand = new SqlCommand(checkLoginQuery, connection);
+                    checkLoginCommand.Parameters.AddWithValue("@Login", LoginTextBox.Text);
+                    int loginExists = (int)checkLoginCommand.ExecuteScalar();
 
-                    if (exists > 0)
+                    if (loginExists > 0)
                     {
-                        ShowCustomMessageBox("Пользователь с таким логином уже существует!", "Ошибка", false);
+                        var errorMessageBox = new CustomBox("Пользователь с таким логином уже существует!", false);
+                        errorMessageBox.ShowDialog();
                         return false;
                     }
 
-                    string query = @"INSERT INTO Users 
-                                    (Login_user, Password_user, EmployeeID, StatusID)
-                                    VALUES 
-                                    (@Login, @Password, @EmployeeID, @StatusID)";
+                    string checkEmployeeQuery = "SELECT COUNT(*) FROM Users WHERE EmployeeID = @EmployeeID";
+                    SqlCommand checkEmployeeCommand = new SqlCommand(checkEmployeeQuery, connection);
+                    checkEmployeeCommand.Parameters.AddWithValue("@EmployeeID", _employeeId);
+                    int userExists = (int)checkEmployeeCommand.ExecuteScalar();
 
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@Login", login);
-                    command.Parameters.AddWithValue("@Password", password);
-                    command.Parameters.AddWithValue("@EmployeeID", employeeId);
-                    command.Parameters.AddWithValue("@StatusID", (status as dynamic)?.Id ?? 0);
+                    if (userExists > 0)
+                    {
+                        var errorMessageBox = new CustomBox("Для этого сотрудника уже существует учетная запись!", false);
+                        errorMessageBox.ShowDialog();
+                        return false;
+                    }
+
+                    SqlCommand command = new SqlCommand("CreateUserWithHashedPassword", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Login", LoginTextBox.Text);
+                    command.Parameters.AddWithValue("@PlainPassword", PasswordBox.Password);
+                    command.Parameters.AddWithValue("@StatusID", StatusComboBox.SelectedValue);
+                    command.Parameters.AddWithValue("@EmployeeID", _employeeId);
 
                     int rowsAffected = command.ExecuteNonQuery();
                     return rowsAffected > 0;
@@ -139,35 +185,35 @@ namespace HR_department
             }
             catch (Exception ex)
             {
-                ShowCustomMessageBox($"Ошибка при создании пользователя: {ex.Message}", "Ошибка", false);
+                var errorMessageBox = new CustomBox($"Ошибка при создании пользователя: {ex.Message}", false);
+                errorMessageBox.ShowDialog();
                 return false;
             }
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (SaveUser(_employeeId, LoginTextBox.Text, PasswordBox.Password, StatusComboBox.SelectedItem))
+            var confirmBox = new CustomBox("Вы уверены, что хотите создать нового пользователя?", true);
+            if (confirmBox.ShowDialog() != true) return;
+
+            if (SaveUser())
             {
                 _isSaved = true;
-                ShowCustomMessageBox("Пользователь успешно создан!", "Успех", false);
-                Staff staff = new Staff();
-                staff.Show();
-                this.Close();
+                var successMessageBox = new CustomBox("Пользователь успешно создан!", false);
+                successMessageBox.ShowDialog();
+                DialogResult = true;
+                Close();
             }
-        }
-
-        private void ShowCustomMessageBox(string message, string title, bool showCancelButton = true)
-        {
-            CustomBox customBox = new CustomBox(message, showCancelButton)
-            {
-                Title = title
-            };
-            customBox.ShowDialog();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowCustomMessageBox("Необходимо сохранить данные!", "Предупреждение", false);
+            var confirmBox = new CustomBox("Вы уверены, что хотите отменить создание пользователя? Все введенные данные будут потеряны.", true);
+            if (confirmBox.ShowDialog() == true)
+            {
+                DialogResult = false;
+                Close();
+            }
         }
     }
 }

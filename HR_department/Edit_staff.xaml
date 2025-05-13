@@ -6,21 +6,36 @@
         xmlns:local="clr-namespace:HR_department"
         mc:Ignorable="d"
         Title="Редактирование сотрудника" 
-        Height="710.8" 
+        Height="835.6" 
         Width="600" 
         WindowStartupLocation="CenterScreen" 
         ResizeMode="NoResize" 
-        Background="#FF2D2D30">
+        Background="#FF2D2D30"
+        SizeToContent="Height">
 
     <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="FieldLabelStyle">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+
+        <Style TargetType="Control" x:Key="InputFieldStyle">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="Margin" Value="0,0,0,8"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#FF007ACC"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderBrush" Value="#FF007ACC"/>
-            <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Width" Value="148"/>
-            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Width" Value="140"/>
+            <Setter Property="Height" Value="36"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
@@ -28,13 +43,9 @@
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="border" 
                                 Background="{TemplateBinding Background}" 
-                                CornerRadius="10" 
+                                CornerRadius="8" 
                                 BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="1"
-                                RenderTransformOrigin="0.5,0.5">
-                            <Border.RenderTransform>
-                                <ScaleTransform ScaleX="1" ScaleY="1"/>
-                            </Border.RenderTransform>
+                                BorderThickness="1">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -47,83 +58,253 @@
             </Setter>
         </Style>
 
-        <Style TargetType="TextBox">
+        <Style TargetType="TextBox" BasedOn="{StaticResource InputFieldStyle}">
             <Setter Property="Background" Value="#FF3E3E40"/>
-            <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderBrush" Value="#FF3E3E40"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="Padding" Value="4"/>
         </Style>
 
+        <Style TargetType="ComboBox" BasedOn="{StaticResource InputFieldStyle}">
+            <Setter Property="Background" Value="#FF3E3E40"/>
+            <Setter Property="BorderBrush" Value="#FF3E3E40"/>
+            <Setter Property="Padding" Value="4"/>
+        </Style>
+        
         <Style TargetType="DatePicker">
             <Setter Property="Background" Value="#FF3E3E40"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderBrush" Value="#FF3E3E40"/>
-            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="Margin" Value="0,0,0,8"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="SelectedDateFormat" Value="Short"/>
         </Style>
 
-        <Style TargetType="ComboBox">
+        <Style TargetType="TabControl">
+            <Setter Property="Background" Value="#FF252526"/>
+            <Setter Property="BorderBrush" Value="#FF3E3E40"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+
+        <Style TargetType="TabItem">
             <Setter Property="Background" Value="#FF3E3E40"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderBrush" Value="#FF3E3E40"/>
-            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Border Name="Border" Background="#FF3E3E40" BorderBrush="#FF3E3E40" BorderThickness="1,1,1,0" CornerRadius="4,4,0,0">
+                            <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" Margin="8,4"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#FF007ACC"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#FF4BA4D9"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
-        <Style TargetType="TextBlock">
+        <Style x:Key="SearchComboBoxStyle" TargetType="ComboBox" BasedOn="{StaticResource {x:Type ComboBox}}">
+            <Setter Property="Background" Value="#FF3E3E40"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Margin" Value="0,5,0,0"/>
+            <Setter Property="BorderBrush" Value="#FF3E3E40"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="0,0,0,8"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton 
+                                Name="ToggleButton" 
+                                Grid.ColumnSpan="2"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                ClickMode="Press">
+                                <ToggleButton.Style>
+                                    <Style TargetType="ToggleButton">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border 
+                                                        Background="{TemplateBinding Background}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                        CornerRadius="3">
+                                                        <Grid>
+                                                            <ContentPresenter 
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Center"
+                                                                Margin="4,0,0,0"/>
+                                                            <Path 
+                                                                x:Name="Arrow"
+                                                                Fill="{TemplateBinding Foreground}"
+                                                                HorizontalAlignment="Right"
+                                                                VerticalAlignment="Center"
+                                                                Margin="0,0,4,0"
+                                                                Data="M 0 0 L 4 4 L 8 0 Z"/>
+                                                        </Grid>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ContentPresenter
+                                Name="ContentSite"
+                                Content="{TemplateBinding SelectionBoxItem}"
+                                ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                Margin="4,0,20,0"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"/>
+                            <Popup 
+                                Name="Popup"
+                                Placement="Bottom"
+                                IsOpen="{TemplateBinding IsDropDownOpen}"
+                                AllowsTransparency="True"
+                                Focusable="False"
+                                PopupAnimation="Slide">
+                                <Grid 
+                                    Name="DropDown"
+                                    SnapsToDevicePixels="True"
+                                    MinWidth="{TemplateBinding ActualWidth}"
+                                    MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border 
+                                        x:Name="DropDownBorder"
+                                        Background="#FF3E3E40"
+                                        BorderThickness="1"
+                                        BorderBrush="#FF3E3E40"
+                                        CornerRadius="0,0,3,3"/>
+                                    <ScrollViewer SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="#FF007ACC"/>
+                            </Trigger>
+                            <Trigger Property="IsDropDownOpen" Value="True">
+                                <Setter Property="BorderBrush" Value="#FF007ACC"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="#FF3E3E40"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontFamily" Value="Segoe UI"/>
+                        <Setter Property="Padding" Value="4"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsHighlighted" Value="True">
+                                <Setter Property="Background" Value="#FF007ACC"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#FF4BA4D9"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Grid Margin="0,0,-0.4,0">
         <Border Background="#FF252526" 
-                CornerRadius="10" 
+                CornerRadius="8" 
                 BorderBrush="#FF3E3E40" 
                 BorderThickness="1" 
                 VerticalAlignment="Center" 
                 HorizontalAlignment="Center" 
-                Padding="20" 
-                Width="500">
+                Padding="16" 
+                Width="480" 
+                Margin="40,20">
             <StackPanel>
                 <TextBlock Text="Редактирование сотрудника" 
-                          FontSize="20" 
+                          FontSize="18" 
                           FontWeight="Bold" 
                           HorizontalAlignment="Center" 
-                          Margin="0,0,0,20"/>
+                          Foreground="White"
+                          Margin="0,0,0,16"/>
 
-                <TextBlock Text="Фамилия:"/>
-                <TextBox x:Name="LastNameTextBox"/>
+                <TabControl SelectionChanged="TabControl_SelectionChanged">
+                    <TabItem Header="Личные данные">
+                        <StackPanel Margin="0,8,0,0">
+                            <TextBlock Text="Фамилия:" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox x:Name="LastNameTextBox"/>
 
-                <TextBlock Text="Имя:"/>
-                <TextBox x:Name="FirstNameTextBox"/>
+                            <TextBlock Text="Имя:" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox x:Name="FirstNameTextBox"/>
 
-                <TextBlock Text="Отчество:"/>
-                <TextBox x:Name="MiddleNameTextBox"/>
+                            <TextBlock Text="Отчество:" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox x:Name="MiddleNameTextBox"/>
 
-                <TextBlock Text="Дата рождения:"/>
-                <DatePicker x:Name="BirthDatePicker"/>
+                            <TextBlock Text="Дата рождения:" Style="{StaticResource FieldLabelStyle}"/>
+                            <DatePicker x:Name="BirthDatePicker" Foreground="#FF2D2D30"/>
 
-                <TextBlock Text="Номер телефона:"/>
-                <TextBox x:Name="PhoneTextBox" MaxLength="10" PreviewTextInput="PhoneTextBox_PreviewTextInput" ToolTip="Введите 10 цифр номера телефона (без +7 и других символов)"/>
+                            <TextBlock Text="Номер телефона:" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox x:Name="PhoneTextBox" MaxLength="10" PreviewTextInput="PhoneTextBox_PreviewTextInput" 
+                                   ToolTip="Введите 10 цифр номера телефона (без +7 и других символов)"/>
 
-                <TextBlock Text="Образование:"/>
-                <TextBox x:Name="EducationTextBox"/>
+                            <TextBlock Text="Образование:" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox x:Name="EducationTextBox"/>
 
-                <TextBlock Text="Дата приема на работу:"/>
-                <DatePicker x:Name="HireDatePicker"/>
+                            <TextBlock Text="Дата приема на работу:" Style="{StaticResource FieldLabelStyle}"/>
+                            <DatePicker x:Name="HireDatePicker" Foreground="#FF2D2D30"/>
 
-                <TextBlock Text="Должность:"/>
-                <ComboBox x:Name="PositionComboBox" DisplayMemberPath="Name" SelectedValuePath="Id"/>
+                            <TextBlock Text="Должность:" Style="{StaticResource FieldLabelStyle}"/>
+                            <ComboBox x:Name="PositionComboBox" Style="{StaticResource SearchComboBoxStyle}" DisplayMemberPath="Name" SelectedValuePath="Id"/>
 
-                <TextBlock Text="Отдел:"/>
-                <ComboBox x:Name="DepartmentComboBox" DisplayMemberPath="Name" SelectedValuePath="Id"/>
+                            <TextBlock Text="Отдел:" Style="{StaticResource FieldLabelStyle}"/>
+                            <ComboBox x:Name="DepartmentComboBox" Style="{StaticResource SearchComboBoxStyle}" DisplayMemberPath="Name" SelectedValuePath="Id"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Учетные данные">
+                        <StackPanel Margin="0,8,0,0">
+                            <TextBlock Text="Логин:" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox x:Name="LoginTextBox" MaxLength="30" 
+                                    ToolTip="Логин должен содержать более 12 символов"/>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <TextBlock Text="Пароль:" Style="{StaticResource FieldLabelStyle}"/>
+                            <TextBox x:Name="PasswordTextBox" MaxLength="15" 
+                                    ToolTip="Оставьте '[Оставить текущий пароль]' чтобы не изменять пароль"
+                                    GotFocus="PasswordTextBox_GotFocus"
+                                    LostFocus="PasswordTextBox_LostFocus"/>
+
+                            <TextBlock Text="Статус:" Style="{StaticResource FieldLabelStyle}"/>
+                            <ComboBox x:Name="StatusComboBox" Style="{StaticResource SearchComboBoxStyle}"/>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,16,0,0">
                     <Button x:Name="SaveButton" 
                            Content="Сохранить" 
                            Style="{StaticResource RoundedButtonStyle}" 
-                           Margin="0,0,10,0" 
+                           Margin="0,0,8,0" 
                            Click="SaveButton_Click"/>
                     <Button x:Name="CancelButton" 
                            Content="Отменить" 

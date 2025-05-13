@@ -6,10 +6,8 @@
         xmlns:local="clr-namespace:HR_department"
         mc:Ignorable="d"
         Title="Авторизация" 
-        Height="369.2" 
+        Height="399.6" 
         Width="442"
-        MinHeight="369.2"
-        MinWidth="442"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="#FF2D2D30">
@@ -21,6 +19,8 @@
             <Setter Property="BorderBrush" Value="#FF3E3E40"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Padding" Value="5"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="True">
                     <Setter Property="BorderBrush" Value="Red"/>
@@ -35,6 +35,8 @@
             <Setter Property="BorderBrush" Value="#FF3E3E40"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Padding" Value="5"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="True">
                     <Setter Property="BorderBrush" Value="Red"/>
@@ -45,15 +47,34 @@
     </Window.Resources>
 
     <Grid>
-        <Border Background="#FF252526" CornerRadius="10" BorderBrush="#FF3E3E40" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20">
+        <Border x:Name="sad" Background="#FF252526" CornerRadius="10" BorderBrush="#FF3E3E40" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" Margin="108,32,81.2,22" Width="246" Height="290">
             <StackPanel>
                 <TextBlock Text="Вход в систему" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
                 <TextBlock Text="Логин:" FontSize="13" Foreground="White" Margin="0,5"/>
-                <TextBox x:Name="UsernameTextBox" ToolTip="Введите свой логин" Margin="0,5,0,10" KeyDown="UsernameTextBox_KeyDown"/>
+                <TextBox x:Name="UsernameTextBox" ToolTip="Введите свой логин" Margin="0,5,0,10" KeyDown="UsernameTextBox_KeyDown" UndoLimit="30"/>
 
                 <TextBlock Text="Пароль:" FontSize="13" Foreground="White" Margin="0,5"/>
-                <PasswordBox x:Name="PasswordBox" ToolTip="Введите свой пароль" Margin="0,5,0,20" KeyDown="PasswordBox_KeyDown"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <PasswordBox x:Name="PasswordBox" ToolTip="Введите свой пароль" Margin="0,0,5,0" KeyDown="PasswordBox_KeyDown"/>
+                        <TextBox x:Name="VisiblePasswordBox" ToolTip="Введите свой пароль" Margin="0,0,5,0" 
+                                 KeyDown="PasswordBox_KeyDown" Visibility="Collapsed"/>
+                    </Grid>
+
+                    <Button x:Name="TogglePasswordButton" Grid.Column="1" Grid.Row="0" Width="30" Height="30" Margin="0,0,0,0" 
+                            Background="Transparent" BorderBrush="Transparent" Click="TogglePasswordButton_Click" Cursor="Hand">
+                        <Image x:Name="PasswordEyeImage" Source="eyebrow.png" Width="20" Height="20"/>
+                    </Button>
+                </Grid>
 
                 <Grid x:Name="CaptchaGrid" Visibility="Collapsed" Margin="0,0,0,20">
                     <Grid.RowDefinitions>
@@ -62,17 +83,17 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="Введите текст с изображения:" FontSize="13" Foreground="White" Grid.Row="0"/>
+                    <TextBlock Text="Введите текст с изображения:" FontSize="13" Foreground="White" Grid.Row="0" Margin="0,15,0,0"/>
                     <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,5,0,5">
-                        <Image x:Name="CaptchaImage" Width="180" Height="40" Margin="0,0,10,0"/>
-                        <Button x:Name="RefreshCaptchaButton" Content="⟳" Width="25" Height="25" 
+                        <Image x:Name="CaptchaImage" Width="160" Height="60" Margin="0,0,10,0"/>
+                        <Button x:Name="RefreshCaptchaButton" Cursor="Hand" Content="⟳" Width="25" Height="25" 
                                 ToolTip="Обновить капчу" Click="RefreshCaptchaButton_Click"/>
                     </StackPanel>
-                    <TextBox x:Name="CaptchaTextBox" Grid.Row="2" Margin="0,5,0,0" 
-                             ToolTip="Введите текст с изображения"/>
+                    <TextBox x:Name="CaptchaTextBox" Grid.Row="2" Margin="0,5,0,0" ToolTip="Введите текст с изображения"/>
                 </Grid>
 
-                <Button x:Name="LoginButton" Content="Войти" Background="#FF007ACC" Foreground="White" BorderBrush="#FF007ACC" Padding="10,5" FontSize="16" HorizontalAlignment="Stretch" Cursor="Hand" Click="LoginButton_Click"/>
+                <Button x:Name="LoginButton" Content="Войти" Background="#FF007ACC" Foreground="White" BorderBrush="#FF007ACC" 
+                        Padding="10,5" FontSize="16" HorizontalAlignment="Stretch" Cursor="Hand" Click="LoginButton_Click" Margin="0,20,0,0"/>
             </StackPanel>
         </Border>
     </Grid>

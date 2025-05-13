@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HR_department"
         mc:Ignorable="d"
-        Title="Администратор" Height="450" Width="638.606" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FF2D2D30">
+       Title="Администратор" Height="499.2" Width="638.606" 
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" 
+        Background="#FF2D2D30" Closing="Window_Closing">
     <Window.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#FF007ACC"/>
@@ -64,16 +66,68 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="AccountButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="Transparent" 
+                                RenderTransformOrigin="0.5,0.5">
+                            <Border.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            </Border.RenderTransform>
+                            <Image Source="account.png" Width="32" Height="32"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                             To="1.1" Duration="0:0:0.1"/>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                                             To="1.1" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                             To="1.0" Duration="0:0:0.1"/>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                                             To="1.0" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
+
     <Grid>
         <Border Background="#FF252526" CornerRadius="10" BorderBrush="#FF3E3E40" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" Width="328">
             <Grid>
-                <Button x:Name="staff" Content="Сотрудники" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,0.4,289" Click="staff_Click"/>
-                <Button Content="Учет рабочего времени" Style="{StaticResource RoundedButtonStyle}" Margin="0,60,0.4,233"/>
-                <Button Content="Больничные листы" Style="{StaticResource RoundedButtonStyle}" Margin="0,120,0,180"/>
-                <Button Content="Отпуска" Style="{StaticResource RoundedButtonStyle}" Margin="0,180,0,120"/>
-                <Button Content="Аттестация" Style="{StaticResource RoundedButtonStyle}" Margin="0,240,0,60"/>
-                <Button Content="Отчёты" Style="{StaticResource RoundedButtonStyle}" Margin="0,300,0,0"/>
+                <Button x:Name="AccountButton" Style="{StaticResource AccountButtonStyle}" 
+                        HorizontalAlignment="Right"  ToolTip="Войти в личный кабинет" Cursor="Hand" VerticalAlignment="Top" Margin="0,-10,-10,0"
+                        Click="AccountButton_Click"/>
+
+                <Button x:Name="staff" Content="Сотрудники" Style="{StaticResource RoundedButtonStyle}" Margin="0,30,0.4,289" Click="staff_Click"/>
+                <Button x:Name="SickLeavesButton" Content="Больничные листы" Style="{StaticResource RoundedButtonStyle}" Margin="0,90,0.4,233" Click="SickLeavesButton_Click"/>
+                <Button x:Name="VacationButton" Content="Отпуска" Style="{StaticResource RoundedButtonStyle}" Margin="0,150,0,180" Click="VacationButton_Click"/>
+                <Button x:Name="CertificationButton" Content="Аттестации" Style="{StaticResource RoundedButtonStyle}" Margin="0,210,0,120" Click="CertificationButton_Click"/>
+                <Button x:Name="AchievementButton" Content="Достижения" Style="{StaticResource RoundedButtonStyle}" Margin="0,270,0,60" Click="AchievementButton_Click"/>
+                <Button x:Name="ReportsButton" Content="Отчёты" Style="{StaticResource RoundedButtonStyle}" Margin="0,330,0,0" Click="ReportsButton_Click"/>
             </Grid>
         </Border>
     </Grid>

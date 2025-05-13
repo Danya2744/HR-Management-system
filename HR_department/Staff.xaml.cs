@@ -12,11 +12,13 @@ namespace HR_department
     public partial class Staff : Window
     {
         private const string ConnectionString = "Server=localhost\\MSSQLSERVER1;Database=HR_department;Trusted_Connection=True;TrustServerCertificate=True";
+        private List<Employee> _allEmployees = new List<Employee>();
 
         public Staff()
         {
             InitializeComponent();
             LoadStaffData();
+            DepartmentFilterComboBox.SelectionChanged += DepartmentFilterComboBox_SelectionChanged;
         }
 
         private void LoadStaffData()
@@ -26,6 +28,14 @@ namespace HR_department
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     connection.Open();
+                    string departmentsQuery = "SELECT DepartmentID, DepartmentName FROM Departments";
+                    using (SqlCommand deptCommand = new SqlCommand(departmentsQuery, connection))
+                    {
+                        DataTable deptTable = new DataTable();
+                        deptTable.Load(deptCommand.ExecuteReader());
+                        DepartmentFilterComboBox.ItemsSource = deptTable.DefaultView;
+                        DepartmentFilterComboBox.SelectedIndex = -1;
+                    }
                     string query = @"SELECT 
                                     s.EmployeeID, 
                                     s.LastName, 
@@ -38,21 +48,24 @@ namespace HR_department
                                     d.DepartmentName AS Department, 
                                     p.PositionName AS Position,
                                     s.PositionID,
-                                    s.DepartmentID
+                                    s.DepartmentID,
+                                    u.Login_user AS Login
                                 FROM 
                                     Staff s
                                 JOIN 
                                     Departments d ON s.DepartmentID = d.DepartmentID
                                 JOIN 
-                                    Positions p ON s.PositionID = p.PositionID";
+                                    Positions p ON s.PositionID = p.PositionID
+                                LEFT JOIN
+                                    Users u ON s.EmployeeID = u.EmployeeID";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        List<Employee> employees = new List<Employee>();
+                        _allEmployees = new List<Employee>();
                         while (reader.Read())
                         {
-                            employees.Add(new Employee
+                            _allEmployees.Add(new Employee
                             {
                                 EmployeeID = reader.GetInt32(reader.GetOrdinal("EmployeeID")),
                                 LastName = reader.GetString(reader.GetOrdinal("LastName")),
@@ -67,36 +80,70 @@ namespace HR_department
                                 PositionID = reader.GetInt32(reader.GetOrdinal("PositionID")),
                                 DepartmentID = reader.GetInt32(reader.GetOrdinal("DepartmentID")),
                                 Department = reader.GetString(reader.GetOrdinal("Department")),
-                                Position = reader.GetString(reader.GetOrdinal("Position"))
+                                Position = reader.GetString(reader.GetOrdinal("Position")),
+                                Login = reader.IsDBNull(reader.GetOrdinal("Login")) ?
+                                    string.Empty : reader.GetString(reader.GetOrdinal("Login"))
                             });
                         }
 
-                        StaffDataGrid.ItemsSource = employees;
+                        StaffDataGrid.ItemsSource = _allEmployees;
                     }
                 }
             }
             catch (Exception ex)
             {
-                var errorMessageBox = new CustomBox($"Ошибка загрузки сотрудников: {ex.Message}", false);
-                errorMessageBox.ShowDialog();
+                new CustomBox($"Ошибка загрузки сотрудников: {ex.Message}", false).ShowDialog();
             }
         }
 
-        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            if (StaffDataGrid.ItemsSource is List<Employee> employees)
-            {
-                var searchText = SearchTextBox.Text.ToLower();
-                var filteredData = employees
-                    .Where(emp => emp.LastName.ToLower().Contains(searchText) ||
-                                  emp.FirstName.ToLower().Contains(searchText) ||
-                                  (emp.MiddleName != null && emp.MiddleName.ToLower().Contains(searchText)) ||
-                                  emp.Department.ToLower().Contains(searchText) ||
-                                  emp.Position.ToLower().Contains(searchText))
-                    .ToList();
+            ApplyFilters();
+        }
 
-                StaffDataGrid.ItemsSource = filteredData;
+        private void SearchTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                ApplyFilters();
             }
+        }
+
+        private void DepartmentFilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ApplyFilters();
+        }
+
+        private void ApplyFilters()
+        {
+            if (_allEmployees == null || _allEmployees.Count == 0)
+                return;
+
+            var filtered = _allEmployees.AsEnumerable();
+
+            if (!string.IsNullOrWhiteSpace(SearchTextBox.Text))
+            {
+                string searchText = SearchTextBox.Text.ToLower();
+                filtered = filtered.Where(emp =>
+                    emp.LastName.ToLower().Contains(searchText) ||
+                    emp.FirstName.ToLower().Contains(searchText) ||
+                    (emp.MiddleName != null && emp.MiddleName.ToLower().Contains(searchText)));
+            }
+
+            if (DepartmentFilterComboBox.SelectedValue != null &&
+                DepartmentFilterComboBox.SelectedValue is int deptId)
+            {
+                filtered = filtered.Where(emp => emp.DepartmentID == deptId);
+            }
+
+            StaffDataGrid.ItemsSource = filtered.ToList();
+        }
+
+        private void ResetFiltersButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchTextBox.Text = string.Empty;
+            DepartmentFilterComboBox.SelectedIndex = -1;
+            StaffDataGrid.ItemsSource = _allEmployees;
         }
 
         private void StaffDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -110,8 +157,6 @@ namespace HR_department
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            Admin admin = new Admin();
-            admin.Show();
             this.Close();
         }
 
@@ -127,8 +172,7 @@ namespace HR_department
             var selectedEmployee = StaffDataGrid.SelectedItem as Employee;
             if (selectedEmployee == null)
             {
-                var errorMessageBox = new CustomBox("Выберите сотрудника для удаления.", false);
-                errorMessageBox.ShowDialog();
+                new CustomBox("Выберите сотрудника для удаления.", false).ShowDialog();
                 return;
             }
 
@@ -154,8 +198,7 @@ namespace HR_department
                 }
                 catch (Exception ex)
                 {
-                    var errorMessageBox = new CustomBox($"Ошибка при удалении сотрудника: {ex.Message}", false);
-                    errorMessageBox.ShowDialog();
+                    new CustomBox($"Ошибка при удалении сотрудника: {ex.Message}", false).ShowDialog();
                 }
             }
         }
@@ -165,8 +208,7 @@ namespace HR_department
             var selectedEmployee = StaffDataGrid.SelectedItem as Employee;
             if (selectedEmployee == null)
             {
-                var errorMessageBox = new CustomBox("Выберите сотрудника для редактирования.", false);
-                errorMessageBox.ShowDialog();
+                new CustomBox("Выберите сотрудника для редактирования.", false).ShowDialog();
                 return;
             }
 
@@ -176,22 +218,5 @@ namespace HR_department
                 LoadStaffData();
             }
         }
-    }
-
-    public class Employee
-    {
-        public int EmployeeID { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
-        public string MiddleName { get; set; }
-        public DateTime BirthDate { get; set; }
-        public string ContactInfo { get; set; }
-        public string Education { get; set; }
-        public DateTime HireDate { get; set; }
-        public int PositionID { get; set; }
-        public int DepartmentID { get; set; }
-
-        public string Department { get; set; }
-        public string Position { get; set; }
     }
 }

@@ -5,41 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HR_department"
         mc:Ignorable="d"
-        Title="Информация о сотруднике" Height="675.338" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FF2D2D30">
-
+        Title="Информация о сотруднике" Height="700" Width="600" 
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FF2D2D30">
     <Grid>
-        <Border Background="#FF252526" CornerRadius="10" BorderBrush="#FF3E3E40" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" Width="500">
+        <Border Background="#FF252526" CornerRadius="10" BorderBrush="#FF3E3E40" BorderThickness="1" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" Width="500">
             <StackPanel>
-                <TextBlock Text="Информация о сотруднике" FontSize="20" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                <TextBlock Text="Информация о сотруднике" FontSize="20" FontWeight="Bold" 
+                           Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
                 <TextBlock Text="Фамилия:" Foreground="White" Margin="0,5"/>
-                <TextBox x:Name="LastNameTextBox" Background="#FF3E3E40" Foreground="White" BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
+                <TextBox x:Name="LastNameTextBox" Background="#FF3E3E40" Foreground="White" 
+                         BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
 
                 <TextBlock Text="Имя:" Foreground="White" Margin="0,5"/>
-                <TextBox x:Name="FirstNameTextBox" Background="#FF3E3E40" Foreground="White" BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
+                <TextBox x:Name="FirstNameTextBox" Background="#FF3E3E40" Foreground="White" 
+                         BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
 
                 <TextBlock Text="Отчество:" Foreground="White" Margin="0,5"/>
-                <TextBox x:Name="MiddleNameTextBox" Background="#FF3E3E40" Foreground="White" BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
+                <TextBox x:Name="MiddleNameTextBox" Background="#FF3E3E40" Foreground="White" 
+                         BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
 
                 <TextBlock Text="Дата рождения:" Foreground="White" Margin="0,5"/>
-                <TextBox x:Name="BirthDateTextBox" Background="#FF3E3E40" Foreground="White" BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
+                <TextBox x:Name="BirthDateTextBox" Background="#FF3E3E40" Foreground="White" 
+                         BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
 
                 <TextBlock Text="Номер телефона:" Foreground="White" Margin="0,5"/>
-                <TextBox x:Name="PhoneTextBox" Background="#FF3E3E40" Foreground="White" BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
+                <TextBox x:Name="PhoneTextBox" Background="#FF3E3E40" Foreground="White" 
+                         BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
 
                 <TextBlock Text="Email:" Foreground="White" Margin="0,5"/>
-                <TextBox x:Name="EmailTextBox" Background="#FF3E3E40" Foreground="White" BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
+                <TextBox x:Name="EmailTextBox" Background="#FF3E3E40" Foreground="White" 
+                         BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
 
                 <TextBlock Text="Образование:" Foreground="White" Margin="0,5"/>
-                <TextBox x:Name="EducationTextBox" Background="#FF3E3E40" Foreground="White" BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
+                <TextBox x:Name="EducationTextBox" Background="#FF3E3E40" Foreground="White" 
+                         BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
 
                 <TextBlock Text="Дата приема на работу:" Foreground="White" Margin="0,5"/>
-                <TextBox x:Name="HireDateTextBox" Background="#FF3E3E40" Foreground="White" BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
+                <TextBox x:Name="HireDateTextBox" Background="#FF3E3E40" Foreground="White" 
+                         BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
 
                 <TextBlock Text="Должность:" Foreground="White" Margin="0,5"/>
-                <TextBox x:Name="PositionTextBox" Background="#FF3E3E40" Foreground="White" BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
+                <TextBox x:Name="PositionTextBox" Background="#FF3E3E40" Foreground="White" 
+                         BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
 
                 <TextBlock Text="Отдел:" Foreground="White" Margin="0,5"/>
-                <TextBox x:Name="DepartmentTextBox" Background="#FF3E3E40" Foreground="White" BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
+                <TextBox x:Name="DepartmentTextBox" Background="#FF3E3E40" Foreground="White" 
+                         BorderBrush="#FF3E3E40" Padding="5" IsReadOnly="True"/>
             </StackPanel>
         </Border>
     </Grid>

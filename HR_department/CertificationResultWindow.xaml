@@ -1,0 +1,124 @@
+﻿<Window x:Class="HR_department.CertificationResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HR_department"
+        mc:Ignorable="d"
+        Title="Результаты аттестации" 
+        Height="476.8" 
+        Width="500"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#FF2D2D30"
+        Closing="Window_Closing">
+
+    <Window.Resources>
+        <Style x:Key="FormButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FF007ACC"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FF007ACC"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                CornerRadius="5" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="1"
+                                RenderTransformOrigin="0.5,0.5">
+                            <Border.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            </Border.RenderTransform>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                             To="1.03" Duration="0:0:0.1"/>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                                             To="1.03" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                             To="1.0" Duration="0:0:0.1"/>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                                             To="1.0" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                                <Setter Property="Background" Value="#FF4BA4D9"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#FF3E3E40"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FF3E3E40"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="AcceptsReturn" Value="True"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="0,0,-0.4,0">
+        <Border Background="#FF252526" CornerRadius="10" BorderBrush="#FF3E3E40" BorderThickness="1" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" Width="450" Height="368" Margin="22,49,22,30.2">
+            <StackPanel>
+                <TextBlock Text="Результаты аттестации" FontSize="20" FontWeight="Bold" 
+                          Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                <StackPanel>
+                    <TextBlock Text="Результат:" Foreground="White" Margin="0,0,0,5"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding ElementName=ResultTextBox, Path=Text.Length}" 
+                                   Foreground="#FF7F7F7F" Margin="0,0,5,0"/>
+                        <TextBlock Text="/50" Foreground="#FF7F7F7F"/>
+                    </StackPanel>
+                    <TextBox x:Name="ResultTextBox" Text="Пройдена" IsReadOnly="True"/>
+                </StackPanel>
+
+                <StackPanel Margin="0,15,0,0">
+                    <TextBlock Text="Рекомендации:" Foreground="White" Margin="0,0,0,5"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding ElementName=RecommendationsTextBox, Path=Text.Length}" 
+                                   Foreground="#FF7F7F7F" Margin="0,0,5,0"/>
+                        <TextBlock Text="/300" Foreground="#FF7F7F7F"/>
+                    </StackPanel>
+                    <TextBox x:Name="RecommendationsTextBox" Height="100" MaxLength="300"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <Button x:Name="SaveButton" Content="Сохранить" 
+                            Style="{StaticResource FormButtonStyle}" 
+                            Margin="0,0,20,0" Click="SaveButton_Click"/>
+                    <Button x:Name="CancelButton" Content="Отмена" 
+                            Style="{StaticResource FormButtonStyle}" 
+                            Click="CancelButton_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

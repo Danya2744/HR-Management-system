@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HR_department"
         mc:Ignorable="d"
          Title="CustomMessageBox" 
-        Height="161.6" 
+        Height="204.331" 
         Width="400"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
@@ -16,7 +16,6 @@
         WindowStyle="None">
 
     <Window.Resources>
-        <!-- Стиль для кнопок -->
         <Style x:Key="MessageBoxButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#FF007ACC"/>
             <Setter Property="Foreground" Value="White"/>
@@ -49,7 +48,7 @@
 
     <Grid>
         <Border Background="#FF252526" CornerRadius="10" BorderBrush="#FF3E3E40" BorderThickness="1" Padding="20" Margin="0,0,0,0.2">
-            <StackPanel>
+            <StackPanel Margin="0.2,0.2,0.2,-20.2">
                 <TextBlock x:Name="MessageText" Text="Вы уверены, что хотите удалить сотрудника?" Foreground="White" FontSize="16" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,0,0,20"/>
                 <StackPanel x:Name="ButtonsPanel" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button x:Name="OkButton" Content="ОК" Style="{StaticResource MessageBoxButtonStyle}" Margin="0,0,10,0" Click="OkButton_Click"/>

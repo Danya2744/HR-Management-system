@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\coffe\Downloads\HR\HR\HR_department\obj\Debug\
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\obj\Debug\
 HR_department
 none
 false
 DEBUG;TRACE
-C:\Users\coffe\Downloads\HR\HR\HR_department\App.xaml
-92048425647
-22035508349
-171670985050
-58983833484
-Add_staff.xaml;Add_user.xaml;Admin.xaml;CustomBox.xaml;Edit_staff.xaml;EmployeeDetails.xaml;Employees.xaml;MainWindow.xaml;Staff.xaml;
+C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\App.xaml
+33310916661
+
+39-1470040470
+63138989735
+AchievementDetailsWindow.xaml;AchievementsPage.xaml;AchievementsWindow.xaml;AddAchievementWindow.xaml;AddCertificationWindow.xaml;AddSickLeaveWindow.xaml;AddVacationWindow.xaml;Add_staff.xaml;Add_user.xaml;Admin.xaml;AdminAccountWindow.xaml;AdminAchievementsWindow.xaml;AdminCertificationsWindow.xaml;AdminSickLeavesWindow.xaml;AdminVacationRequestsWindow.xaml;CertificationPage.xaml;CertificationResultWindow.xaml;CertificationWindow.xaml;CustomBox.xaml;EditVacationWindow.xaml;Edit_staff.xaml;EmployeeDetails.xaml;EmployeeInfo.xaml;EmployeeInfoPage.xaml;Employees.xaml;MainWindow.xaml;SickLeaveDetails.xaml;SickLeavesPage.xaml;SickLeavesWindow.xaml;Staff.xaml;VacationPage.xaml;VacationRequestDetails.xaml;VacationWindow.xaml;
 
 False
 

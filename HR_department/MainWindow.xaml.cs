@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,15 +17,47 @@ namespace HR_department
         private int _failedAttempts = 0;
         private string _currentCaptchaText = "";
         private bool _captchaRequired = false;
-        private const double WindowHeightWithoutCaptcha = 369.2;
-        private const double WindowHeightWithCaptcha = 469.2;
+        private const double WindowHeightWithoutCaptcha = 399.6;
+        private const double WindowHeightWithCaptcha = 590;
+        private const double sadheight = 460;
+        private bool _isPasswordVisible = false;
 
         public MainWindow()
         {
             InitializeComponent();
             UsernameTextBox.Focus();
             CaptchaGrid.Visibility = Visibility.Collapsed;
+            VisiblePasswordBox.Visibility = Visibility.Collapsed;
             this.Height = WindowHeightWithoutCaptcha;
+        }
+
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+            }
+        }
+
+        private void TogglePasswordButton_Click(object sender, RoutedEventArgs e)
+        {
+            _isPasswordVisible = !_isPasswordVisible;
+
+            if (_isPasswordVisible)
+            {
+                PasswordBox.Visibility = Visibility.Collapsed;
+                VisiblePasswordBox.Visibility = Visibility.Visible;
+                VisiblePasswordBox.Text = PasswordBox.Password;
+                PasswordEyeImage.Source = new BitmapImage(new Uri("eye-close-up.png", UriKind.Relative));
+            }
+            else
+            {
+                PasswordBox.Visibility = Visibility.Visible;
+                VisiblePasswordBox.Visibility = Visibility.Collapsed;
+                PasswordBox.Password = VisiblePasswordBox.Text;
+                PasswordEyeImage.Source = new BitmapImage(new Uri("eyebrow.png", UriKind.Relative));
+            }
         }
 
         private void ResetFieldStyles()
@@ -116,6 +150,7 @@ namespace HR_department
             _captchaRequired = true;
 
             this.Height = WindowHeightWithCaptcha;
+            this.sad.Height = sadheight;
         }
 
         private void HideCaptcha()
@@ -136,7 +171,7 @@ namespace HR_department
                 isValid = false;
             }
 
-            if (string.IsNullOrEmpty(PasswordBox.Password))
+            if (string.IsNullOrEmpty(PasswordBox.Password) && string.IsNullOrEmpty(VisiblePasswordBox.Text))
             {
                 PasswordBox.BorderBrush = Brushes.Red;
                 PasswordBox.BorderThickness = new Thickness(2);
@@ -185,19 +220,22 @@ namespace HR_department
 
             try
             {
+                string hashedPassword = HashPassword(password);
+
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     connection.Open();
-                    string query = @"SELECT u.UserID, u.Login_user, s.FirstName, s.LastName, s.MiddleName, st.Name_status 
-                                    FROM Users u 
-                                    JOIN Staff s ON u.EmployeeID = s.EmployeeID
-                                    JOIN Status_user st ON u.StatusID = st.StatusID 
-                                    WHERE u.Login_user = @Username AND u.Password_user = @Password";
+                    string query = @"SELECT u.UserID, u.Login_user, s.FirstName, s.LastName, s.MiddleName, 
+                    st.Name_status, s.EmployeeID 
+                    FROM Users u 
+                    JOIN Staff s ON u.EmployeeID = s.EmployeeID
+                    JOIN Status_user st ON u.StatusID = st.StatusID 
+                    WHERE u.Login_user = @Username AND u.Password_user = @Password";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Username", username);
-                        command.Parameters.AddWithValue("@Password", password);
+                        command.Parameters.AddWithValue("@Password", hashedPassword);
 
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
@@ -210,35 +248,32 @@ namespace HR_department
                                 string firstName = reader["FirstName"].ToString();
                                 string lastName = reader["LastName"].ToString();
                                 string middleName = reader["MiddleName"].ToString();
-
-                                this.Hide();
+                                int employeeId = Convert.ToInt32(reader["EmployeeID"]);
 
                                 string fullName = string.IsNullOrEmpty(middleName)
                                     ? $"{lastName} {firstName}"
                                     : $"{lastName} {firstName} {middleName}";
 
                                 var welcomeBox = new CustomBox($"Добро пожаловать, {fullName}!", false);
-                                if (this.IsVisible)
-                                {
-                                    welcomeBox.Owner = this;
-                                }
                                 welcomeBox.ShowDialog();
 
                                 switch (userStatus.ToLower())
                                 {
                                     case "администратор":
-                                        Admin adminWindow = new Admin();
+                                        Admin adminWindow = new Admin(employeeId);
                                         adminWindow.Show();
+                                        this.Close();
                                         break;
                                     case "руководитель":
+                                        // Код для руководителя
                                         break;
                                     case "сотрудник":
-                                        Employees employees = new Employees();
-                                        employees.Show();
+                                        var employeesWindow = new Employees(employeeId, this); 
+                                        employeesWindow.Show();
+                                        this.Hide();
                                         break;
                                     default:
                                         ShowCustomMessage("Неизвестный статус пользователя");
-                                        this.Show();
                                         break;
                                 }
                                 return true;
@@ -258,8 +293,9 @@ namespace HR_department
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                ShowCustomMessage($"Ошибка при авторизации: {ex.Message}");
                 return false;
             }
         }
@@ -274,7 +310,7 @@ namespace HR_department
             }
 
             string username = UsernameTextBox.Text.Trim();
-            string password = PasswordBox.Password.Trim();
+            string password = _isPasswordVisible ? VisiblePasswordBox.Text.Trim() : PasswordBox.Password.Trim();
 
             if (!Auth(username, password))
             {
@@ -289,6 +325,11 @@ namespace HR_department
 
         private void UsernameTextBox_KeyDown(object sender, KeyEventArgs e)
         {
+            if (UsernameTextBox.Text.Length >= 30 && e.Key != Key.Back && e.Key != Key.Delete)
+            {
+                e.Handled = true;
+            }
+
             if (e.Key == Key.Enter)
             {
                 PasswordBox.Focus();
@@ -297,6 +338,11 @@ namespace HR_department
 
         private void PasswordBox_KeyDown(object sender, KeyEventArgs e)
         {
+            if (PasswordBox.Password.Length >= 15 && e.Key != Key.Back && e.Key != Key.Delete)
+            {
+                e.Handled = true;
+            }
+
             if (e.Key == Key.Enter)
             {
                 LoginButton_Click(sender, e);
