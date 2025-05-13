@@ -21,8 +21,8 @@ namespace HR_department
             PhoneTextBox.Text = employee.ContactInfo;
             EducationTextBox.Text = employee.Education;
             HireDateTextBox.Text = employee.HireDate.ToShortDateString();
-            PositionTextBox.Text = employee.Position;
-            DepartmentTextBox.Text = employee.Department;
+            PositionTextBox.Text = employee.PositionName;
+            DepartmentTextBox.Text = employee.DepartmentName;
             EmailTextBox.Text = $"{employee.Login}@edu.fa.ru";
         }
 

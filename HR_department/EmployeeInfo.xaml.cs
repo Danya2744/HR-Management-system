@@ -38,8 +38,8 @@ namespace HR_department
                 PhoneTextBox.Text = _employee.ContactInfo;
                 EducationTextBox.Text = _employee.Education;
                 HireDateTextBox.Text = _employee.HireDate.ToShortDateString();
-                PositionTextBox.Text = _employee.Position;
-                DepartmentTextBox.Text = _employee.Department;
+                PositionTextBox.Text = _employee.PositionName;
+                DepartmentTextBox.Text = _employee.DepartmentName;
                 EmailTextBox.Text = string.IsNullOrEmpty(_employee.Login) ?
                     "не указан" : $"{_employee.Login}@edu.fa.ru";
             }

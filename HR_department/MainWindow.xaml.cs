@@ -265,7 +265,9 @@ namespace HR_department
                                         this.Close();
                                         break;
                                     case "руководитель":
-                                        // Код для руководителя
+                                        Admin managerWindow = new Admin(employeeId, isManager: true);
+                                        managerWindow.Show();
+                                        this.Close();
                                         break;
                                     case "сотрудник":
                                         var employeesWindow = new Employees(employeeId, this); 

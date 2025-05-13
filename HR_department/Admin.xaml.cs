@@ -18,12 +18,20 @@ namespace HR_department
     {
         private readonly int _adminId;
         private MainWindow _authWindow;
+        private readonly bool _isManager;
 
-        public Admin(int adminId, MainWindow authWindow = null)
+        public Admin(int adminId, MainWindow authWindow = null, bool isManager = false)
         {
             InitializeComponent();
             _adminId = adminId;
             _authWindow = authWindow;
+            _isManager = isManager;
+
+            if (_isManager)
+            {
+                this.Title = "Руководитель";
+            }
+
             this.Closing += Admin_Closing;
         }
 
@@ -35,7 +43,7 @@ namespace HR_department
 
         private void staff_Click(object sender, RoutedEventArgs e)
         {
-            var staff = new Staff();
+            var staff = new Staff(_isManager);
             staff.Owner = this;
             staff.ShowDialog();
         }
@@ -85,7 +93,12 @@ namespace HR_department
 
         private void ReportsButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            ReportsWindow reportsWindow = new ReportsWindow
+            {
+                Owner = this
+            };
+            reportsWindow.Show();
+            Hide();
         }
     }
 }

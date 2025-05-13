@@ -75,8 +75,8 @@ namespace HR_department
                                         string.Empty : reader.GetString(reader.GetOrdinal("ContactInfo")),
                                     Education = reader.GetString(reader.GetOrdinal("Education")),
                                     HireDate = reader.GetDateTime(reader.GetOrdinal("HireDate")),
-                                    Department = reader.GetString(reader.GetOrdinal("Department")),
-                                    Position = reader.GetString(reader.GetOrdinal("Position")),
+                                    DepartmentName = reader.GetString(reader.GetOrdinal("Department")),
+                                    PositionName = reader.GetString(reader.GetOrdinal("Position")),
                                     Login = reader.IsDBNull(reader.GetOrdinal("Login")) ?
                                         string.Empty : reader.GetString(reader.GetOrdinal("Login"))
                                 };

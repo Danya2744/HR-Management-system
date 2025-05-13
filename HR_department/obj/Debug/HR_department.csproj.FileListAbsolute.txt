@@ -400,12 +400,9 @@ C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_de
 C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\obj\Debug\AchievementDetailsWindow.g.cs
 C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\obj\Debug\AddAchievementWindow.g.cs
 C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\obj\Debug\AchievementDetailsWindow.baml
-C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\bin\Debug\EPPlus.dll
-C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\bin\Debug\EPPlus.Interfaces.dll
 C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
 C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\bin\Debug\System.ComponentModel.Annotations.dll
 C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\bin\Debug\System.Security.Cryptography.Xml.dll
-C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\bin\Debug\EPPlus.xml
 C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
 C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\bin\Debug\System.Security.Cryptography.Xml.xml
 C:\Users\Danya Vybornov\Desktop\Курсовая работа по БД\HR\HR_department\obj\Debug\ReportsWindow.g.cs

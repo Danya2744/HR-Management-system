@@ -13,10 +13,20 @@ namespace HR_department
     {
         private const string ConnectionString = "Server=localhost\\MSSQLSERVER1;Database=HR_department;Trusted_Connection=True;TrustServerCertificate=True";
         private List<Employee> _allEmployees = new List<Employee>();
+        private readonly bool _isManager;
 
-        public Staff()
+        public Staff(bool isManager = false)
         {
             InitializeComponent();
+            _isManager = isManager;
+
+            if (_isManager)
+            {
+                add_staff.Visibility = Visibility.Collapsed;
+                change.Visibility = Visibility.Collapsed;
+                Delete_staff.Visibility = Visibility.Collapsed;
+            }
+
             LoadStaffData();
             DepartmentFilterComboBox.SelectionChanged += DepartmentFilterComboBox_SelectionChanged;
         }
@@ -79,8 +89,8 @@ namespace HR_department
                                 HireDate = reader.GetDateTime(reader.GetOrdinal("HireDate")),
                                 PositionID = reader.GetInt32(reader.GetOrdinal("PositionID")),
                                 DepartmentID = reader.GetInt32(reader.GetOrdinal("DepartmentID")),
-                                Department = reader.GetString(reader.GetOrdinal("Department")),
-                                Position = reader.GetString(reader.GetOrdinal("Position")),
+                                DepartmentName = reader.GetString(reader.GetOrdinal("Department")),
+                                PositionName = reader.GetString(reader.GetOrdinal("Position")),
                                 Login = reader.IsDBNull(reader.GetOrdinal("Login")) ?
                                     string.Empty : reader.GetString(reader.GetOrdinal("Login"))
                             });

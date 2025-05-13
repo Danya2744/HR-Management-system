@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace HR_department
 {
-    public class Employee
+    public class Employee : INotifyPropertyChanged
     {
         public int EmployeeID { get; set; }
         public string LastName { get; set; }
@@ -18,8 +15,18 @@ namespace HR_department
         public DateTime HireDate { get; set; }
         public int PositionID { get; set; }
         public int DepartmentID { get; set; }
-        public string Department { get; set; }
-        public string Position { get; set; }
+        public string DepartmentName { get; set; }
+        public string PositionName { get; set; }
         public string Login { get; set; }
+
+        public string FullName => $"{LastName} {FirstName} {MiddleName}".Trim();
+        public string BirthDateString => BirthDate.ToShortDateString();
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
