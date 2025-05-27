@@ -194,9 +194,9 @@
 
                 <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,10">
                     <TextBlock Text="От:" Foreground="White" VerticalAlignment="Center" Margin="0,0,5,0"/>
-                    <DatePicker x:Name="DateFromPicker" Style="{StaticResource DatePickerStyle}" SelectedDateFormat="Short"/>
+                    <DatePicker x:Name="DateFromPicker" Style="{StaticResource DatePickerStyle}" Foreground="Black" SelectedDateFormat="Short"/>
                     <TextBlock Text="По:" Foreground="White" VerticalAlignment="Center" Margin="10,0,5,0"/>
-                    <DatePicker x:Name="DateToPicker" Style="{StaticResource DatePickerStyle}" SelectedDateFormat="Short"/>
+                    <DatePicker x:Name="DateToPicker" Style="{StaticResource DatePickerStyle}" Foreground="Black" SelectedDateFormat="Short"/>
                     <Button x:Name="SearchButton" Click="SearchButton_Click" 
                             Style="{StaticResource IconButtonStyle}" Margin="10,0,10,0">
                         <Image Source="search.png" ToolTip="Применить фильтр" Width="20" Height="20"/>

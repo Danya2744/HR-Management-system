@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HR_department"
         mc:Ignorable="d"
-         Title="Сотрудник" Height="450" Width="638.606" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FF2D2D30">
+        Title="Сотрудники" Height="400" Width="350" 
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" 
+        Background="#FF2D2D30">
+
     <Window.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#FF007ACC"/>
@@ -13,8 +16,8 @@
             <Setter Property="BorderBrush" Value="#FF007ACC"/>
             <Setter Property="Padding" Value="10,5"/>
             <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Width" Value="280"/>
-            <Setter Property="Height" Value="45"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Height" Value="40"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
@@ -64,17 +67,76 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="IconButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Width" Value="24"/>
+            <Setter Property="Height" Value="24"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="0"
+                                RenderTransformOrigin="0.5,0.5">
+                            <Border.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            </Border.RenderTransform>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                             To="1.1" Duration="0:0:0.1"/>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                                             To="1.1" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                             To="1.0" Duration="0:0:0.1"/>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                                             To="1.0" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
+
     <Grid>
-        <Border Background="#FF252526" CornerRadius="10" BorderBrush="#FF3E3E40" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" Width="328">
-            <Grid>
-                <Button x:Name="information" Content="Личная информация" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,0.4,289" Click="Information_Click"/>
-                <Button Content="Больничные листы" Style="{StaticResource RoundedButtonStyle}" Margin="0,60,0.4,233" Click="Button_Click"/>
-                <Button x:Name="VacationButton" Content="Отпуска" Style="{StaticResource RoundedButtonStyle}" Margin="0,120,0,180" Click="VacationButton_Click"/>
-                <Button x:Name="CertificationButton" Content="Аттестации" Style="{StaticResource RoundedButtonStyle}" Margin="0,180,0,120" Click="CertificationButton_Click"/>
-                <Button x:Name="AchievementsButton" Content="Достижения" Style="{StaticResource RoundedButtonStyle}" Margin="0,240,0,60" Click="AchievementsButton_Click"/>
-                <Button Content="Отчёты" Style="{StaticResource RoundedButtonStyle}" Margin="0,300,0,0"/>
-            </Grid>
+        <Border Background="#FF252526" CornerRadius="10" BorderBrush="#FF3E3E40" BorderThickness="1" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" Width="300">
+            <StackPanel>
+                <Button x:Name="information" Content="Личная информация" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,0,10" Click="Information_Click"/>
+                <Button Content="Больничные листы" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,0,10" Click="Button_Click"/>
+                <Button x:Name="VacationButton" Content="Отпуска" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,0,10" Click="VacationButton_Click"/>
+                <Button x:Name="CertificationButton" Content="Аттестации" Style="{StaticResource RoundedButtonStyle}" Margin="0,0,0,10" Click="CertificationButton_Click"/>
+                <Button x:Name="AchievementsButton" Content="Достижения" Style="{StaticResource RoundedButtonStyle}" Click="AchievementsButton_Click"/>
+            </StackPanel>
         </Border>
+        <Button x:Name="HelpButton" Style="{StaticResource IconButtonStyle}" 
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" 
+                        ToolTip="Помощь" Click="HelpButton_Click">
+            <Image Source="q.png" Width="24" Height="24"/>
+        </Button>
     </Grid>
 </Window>

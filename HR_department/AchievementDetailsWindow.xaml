@@ -76,7 +76,7 @@
                 <TextBox Text="{Binding FullName, Mode=OneWay}" FontSize="14" IsReadOnly="True"/>
 
                 <TextBlock Text="Дата достижения:"/>
-                <DatePicker SelectedDate="{Binding AchievementDate, Mode=OneWay}" IsEnabled="False"/>
+                <DatePicker SelectedDate="{Binding AchievementDate, Mode=OneWay}" Foreground="Black" IsEnabled="False"/>
 
                 <TextBlock Text="Тип достижения:"/>
                 <TextBox Text="{Binding AchievementType, Mode=OneWay}" IsReadOnly="True"/>

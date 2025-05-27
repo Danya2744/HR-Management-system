@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
+using System.Diagnostics;
 
 namespace HR_department
 {
@@ -21,12 +22,10 @@ namespace HR_department
 
         private void Employees_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            // Создаем новое окно авторизации, если оно не было передано
             var authWindow = _authWindow ?? new MainWindow();
             authWindow.Show();
         }
 
-        // Остальные методы остаются без изменений
         private void Information_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -121,5 +120,11 @@ namespace HR_department
             achievementsWindow.Owner = this;
             achievementsWindow.ShowDialog();
         }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("help.chm");
+        }
+
     }
 }

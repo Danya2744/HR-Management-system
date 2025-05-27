@@ -14,11 +14,13 @@ namespace HR_department
         private const string ConnectionString = "Server=localhost\\MSSQLSERVER1;Database=HR_department;Trusted_Connection=True;TrustServerCertificate=True";
         private List<Employee> _allEmployees = new List<Employee>();
         private readonly bool _isManager;
+        private readonly int _currentUserId;
 
-        public Staff(bool isManager = false)
+        public Staff(bool isManager = false, int currentUserId = -1)
         {
             InitializeComponent();
             _isManager = isManager;
+            _currentUserId = currentUserId;
 
             if (_isManager)
             {
@@ -168,6 +170,7 @@ namespace HR_department
         private void Back_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+
         }
 
         private void add_staff_Click(object sender, RoutedEventArgs e)
@@ -186,8 +189,15 @@ namespace HR_department
                 return;
             }
 
+            if (selectedEmployee.EmployeeID == _currentUserId)
+            {
+                new CustomBox("Вы не можете удалить самого себя!!!", false).ShowDialog();
+                return;
+            }
+
             var confirmMessageBox = new CustomBox(
-                $"Вы уверены, что хотите удалить сотрудника {selectedEmployee.LastName} {selectedEmployee.FirstName}?",
+                $"Вы уверены, что хотите удалить сотрудника {selectedEmployee.LastName} {selectedEmployee.FirstName}? " +
+                "Все связанные данные (учетные записи, больничные, отпуска, сертификации, достижения) также будут удалены.",
                 true);
             confirmMessageBox.ShowDialog();
 
@@ -198,13 +208,53 @@ namespace HR_department
                     using (SqlConnection connection = new SqlConnection(ConnectionString))
                     {
                         connection.Open();
-                        string query = "DELETE FROM Staff WHERE EmployeeID = @EmployeeID";
-                        SqlCommand command = new SqlCommand(query, connection);
-                        command.Parameters.AddWithValue("@EmployeeID", selectedEmployee.EmployeeID);
-                        command.ExecuteNonQuery();
-                    }
 
-                    LoadStaffData();
+                        using (SqlTransaction transaction = connection.BeginTransaction())
+                        {
+                            try
+                            {
+                                string deleteUserQuery = "DELETE FROM Users WHERE EmployeeID = @EmployeeID";
+                                SqlCommand deleteUserCommand = new SqlCommand(deleteUserQuery, connection, transaction);
+                                deleteUserCommand.Parameters.AddWithValue("@EmployeeID", selectedEmployee.EmployeeID);
+                                deleteUserCommand.ExecuteNonQuery();
+
+                                string deleteSickLeavesQuery = "DELETE FROM SickLeaves WHERE EmployeeID = @EmployeeID";
+                                SqlCommand deleteSickLeavesCommand = new SqlCommand(deleteSickLeavesQuery, connection, transaction);
+                                deleteSickLeavesCommand.Parameters.AddWithValue("@EmployeeID", selectedEmployee.EmployeeID);
+                                deleteSickLeavesCommand.ExecuteNonQuery();
+
+                                string deleteVacationRequestsQuery = "DELETE FROM VacationRequests WHERE EmployeeID = @EmployeeID";
+                                SqlCommand deleteVacationRequestsCommand = new SqlCommand(deleteVacationRequestsQuery, connection, transaction);
+                                deleteVacationRequestsCommand.Parameters.AddWithValue("@EmployeeID", selectedEmployee.EmployeeID);
+                                deleteVacationRequestsCommand.ExecuteNonQuery();
+
+                                string deleteCertificationsQuery = "DELETE FROM Certifications WHERE EmployeeID = @EmployeeID";
+                                SqlCommand deleteCertificationsCommand = new SqlCommand(deleteCertificationsQuery, connection, transaction);
+                                deleteCertificationsCommand.Parameters.AddWithValue("@EmployeeID", selectedEmployee.EmployeeID);
+                                deleteCertificationsCommand.ExecuteNonQuery();
+
+                                string deleteAchievementsQuery = "DELETE FROM Achievements WHERE EmployeeID = @EmployeeID";
+                                SqlCommand deleteAchievementsCommand = new SqlCommand(deleteAchievementsQuery, connection, transaction);
+                                deleteAchievementsCommand.Parameters.AddWithValue("@EmployeeID", selectedEmployee.EmployeeID);
+                                deleteAchievementsCommand.ExecuteNonQuery();
+
+                                string deleteStaffQuery = "DELETE FROM Staff WHERE EmployeeID = @EmployeeID";
+                                SqlCommand deleteStaffCommand = new SqlCommand(deleteStaffQuery, connection, transaction);
+                                deleteStaffCommand.Parameters.AddWithValue("@EmployeeID", selectedEmployee.EmployeeID);
+                                deleteStaffCommand.ExecuteNonQuery();
+
+                                transaction.Commit();
+
+                                LoadStaffData();
+                                new CustomBox("Сотрудник и все связанные данные успешно удалены.", false).ShowDialog();
+                            }
+                            catch (Exception ex)
+                            {
+                                transaction.Rollback();
+                                throw new Exception("Ошибка при удалении связанных данных: " + ex.Message, ex);
+                            }
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Diagnostics;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -43,7 +44,7 @@ namespace HR_department
 
         private void staff_Click(object sender, RoutedEventArgs e)
         {
-            var staff = new Staff(_isManager);
+            var staff = new Staff(_isManager, _adminId); 
             staff.Owner = this;
             staff.ShowDialog();
         }
@@ -86,7 +87,7 @@ namespace HR_department
 
         private void AchievementButton_Click(object sender, RoutedEventArgs e)
         {
-            var achWindow = new AddAchievementWindow();
+            var achWindow = new AdminAchievementsWindow();
             achWindow.Owner = this;
             achWindow.ShowDialog();
         }
@@ -99,6 +100,11 @@ namespace HR_department
             };
             reportsWindow.Show();
             Hide();
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("help.chm");
         }
     }
 }

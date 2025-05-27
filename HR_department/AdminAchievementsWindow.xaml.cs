@@ -123,63 +123,11 @@ namespace HR_department
             var addWindow = new AddAchievementWindow();
             if (addWindow.ShowDialog() == true)
             {
-                try
-                {
-                    using (SqlConnection connection = new SqlConnection(ConnectionString))
-                    {
-                        connection.Open();
-                        string query = @"INSERT INTO Achievements 
-                                    (EmployeeID, AchievementDate, AchievementType, Description, Reward, Status)
-                                    VALUES (@EmployeeID, @AchievementDate, @AchievementType, @Description, @Reward, @Status);
-                                    SELECT SCOPE_IDENTITY();";
 
-                        using (SqlCommand command = new SqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@EmployeeID", addWindow.SelectedEmployeeID);
-                            command.Parameters.AddWithValue("@AchievementDate", addWindow.AchievementDate);
-                            command.Parameters.AddWithValue("@AchievementType", addWindow.AchievementType);
-                            command.Parameters.AddWithValue("@Description", addWindow.Description ?? (object)DBNull.Value);
-                            command.Parameters.AddWithValue("@Reward", addWindow.Reward ?? (object)DBNull.Value);
-                            command.Parameters.AddWithValue("@Status", addWindow.Status ?? "Присуждена");
-
-                            int newId = Convert.ToInt32(command.ExecuteScalar());
-
-                            string staffQuery = "SELECT LastName, FirstName, MiddleName FROM Staff WHERE EmployeeID = @EmployeeID";
-                            using (SqlCommand staffCommand = new SqlCommand(staffQuery, connection))
-                            {
-                                staffCommand.Parameters.AddWithValue("@EmployeeID", addWindow.SelectedEmployeeID);
-                                using (SqlDataReader reader = staffCommand.ExecuteReader())
-                                {
-                                    if (reader.Read())
-                                    {
-                                        var newAchievement = new EmployeeAchievement
-                                        {
-                                            AchievementID = newId,
-                                            EmployeeID = addWindow.SelectedEmployeeID,
-                                            LastName = reader.GetString(0),
-                                            FirstName = reader.GetString(1),
-                                            MiddleName = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
-                                            AchievementDate = addWindow.AchievementDate,
-                                            AchievementType = addWindow.AchievementType,
-                                            Description = addWindow.Description,
-                                            Reward = addWindow.Reward,
-                                            Status = addWindow.Status ?? "Присуждена"
-                                        };
-                                        _allAchievements.Insert(0, newAchievement);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    new CustomBox("Достижение успешно добавлено!", false).ShowDialog();
-                    AchievementsDataGrid.Items.Refresh();
-                }
-                catch (Exception ex)
-                {
-                    new CustomBox($"Ошибка при добавлении достижения: {ex.Message}", false).ShowDialog();
-                }
+                LoadAchievementsData();
             }
         }
+
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {

@@ -379,8 +379,8 @@
                         <DataGridTextColumn Header="Фамилия" IsReadOnly="True" Binding="{Binding LastName}" Width="*"/>
                         <DataGridTextColumn Header="Имя" IsReadOnly="True" Binding="{Binding FirstName}" Width="*"/>
                         <DataGridTextColumn Header="Отчество" IsReadOnly="True" Binding="{Binding MiddleName}" Width="*"/>
-                        <DataGridTextColumn Header="Отдел" IsReadOnly="True" Binding="{Binding Department}" Width="*"/>
-                        <DataGridTextColumn Header="Должность" IsReadOnly="True" Binding="{Binding Position}" Width="*"/>
+                        <DataGridTextColumn Header="Отдел" IsReadOnly="True" Binding="{Binding DepartmentName}" Width="*"/>
+                        <DataGridTextColumn Header="Должность" IsReadOnly="True" Binding="{Binding PositionName}" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10,0,0">

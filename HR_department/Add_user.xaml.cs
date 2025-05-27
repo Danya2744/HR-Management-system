@@ -23,14 +23,6 @@ namespace HR_department
             this.Closing += Add_user_Closing;
         }
 
-        private string HashPassword(string password)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
-            }
-        }
 
         private void Add_user_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -172,12 +164,24 @@ namespace HR_department
                         return false;
                     }
 
-                    SqlCommand command = new SqlCommand("CreateUserWithHashedPassword", connection);
-                    command.CommandType = CommandType.StoredProcedure;
+                    string hashedPassword;
+                    using (SHA256 sha256 = SHA256.Create())
+                    {
+                        byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(PasswordBox.Password));
+                        hashedPassword = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+                    }
+
+                    string insertQuery = @"
+                INSERT INTO Users 
+                (Login_user, Password_user, EmployeeID, StatusID) 
+                VALUES 
+                (@Login, @Password, @EmployeeID, @StatusID)";
+
+                    SqlCommand command = new SqlCommand(insertQuery, connection);
                     command.Parameters.AddWithValue("@Login", LoginTextBox.Text);
-                    command.Parameters.AddWithValue("@PlainPassword", PasswordBox.Password);
-                    command.Parameters.AddWithValue("@StatusID", StatusComboBox.SelectedValue);
+                    command.Parameters.AddWithValue("@Password", hashedPassword);
                     command.Parameters.AddWithValue("@EmployeeID", _employeeId);
+                    command.Parameters.AddWithValue("@StatusID", StatusComboBox.SelectedValue);
 
                     int rowsAffected = command.ExecuteNonQuery();
                     return rowsAffected > 0;
@@ -201,8 +205,7 @@ namespace HR_department
                 _isSaved = true;
                 var successMessageBox = new CustomBox("Пользователь успешно создан!", false);
                 successMessageBox.ShowDialog();
-                DialogResult = true;
-                Close();
+                this.Close();
             }
         }
 
@@ -211,8 +214,7 @@ namespace HR_department
             var confirmBox = new CustomBox("Вы уверены, что хотите отменить создание пользователя? Все введенные данные будут потеряны.", true);
             if (confirmBox.ShowDialog() == true)
             {
-                DialogResult = false;
-                Close();
+                this.Close();
             }
         }
     }

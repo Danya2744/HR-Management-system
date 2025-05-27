@@ -132,8 +132,8 @@ namespace HR_department
                     {
                         connection.Open();
                         string query = @"INSERT INTO Achievements 
-                                        (EmployeeID, AchievementDate, AchievementType, Description, Reward, Status)
-                                        VALUES (@EmployeeID, @Date, @Type, @Description, @Reward, @Status)";
+                                (EmployeeID, AchievementDate, AchievementType, Description, Reward, Status)
+                                VALUES (@EmployeeID, @Date, @Type, @Description, @Reward, @Status)";
 
                         using (SqlCommand command = new SqlCommand(query, connection))
                         {
@@ -149,6 +149,7 @@ namespace HR_department
                             command.ExecuteNonQuery();
                         }
                     }
+                    new CustomBox("Достижение успешно добавлено!", false).ShowDialog();
 
                     DialogResult = true;
                     Close();
@@ -159,6 +160,7 @@ namespace HR_department
                 }
             }
         }
+
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
