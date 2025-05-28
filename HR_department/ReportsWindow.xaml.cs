@@ -31,7 +31,6 @@ namespace HR_department
                 CertificationStartDatePicker.SelectedDate = today.AddMonths(-1);
                 CertificationEndDatePicker.SelectedDate = today;
 
-                // Установка свойств только для чтения
                 EmployeesDataGrid.IsReadOnly = true;
                 SickLeavesDataGrid.IsReadOnly = true;
                 VacationsDataGrid.IsReadOnly = true;
